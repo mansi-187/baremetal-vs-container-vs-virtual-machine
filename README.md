@@ -1,51 +1,44 @@
-# Distributed Sorting & Performance Analysis using Hadoop and Spark
+# Cloud Computing - Resource Benchmarking on Containers, VMs, and Bare Metal
 
 ## Overview
-This project focuses on performance analysis of distributed sorting algorithms using Hadoop MapReduce and Apache Spark. The objective was to benchmark and compare their performance on large datasets in a cloud environment.
+This project is part of CS553 Cloud Computing coursework, focusing on benchmarking and analyzing the performance of system resources — CPU, Memory, and Disk — across different environments:
+- Bare Metal (Host Machine)
+- Docker Containers
+- Virtual Machines (VM)
+
+The objective is to evaluate and compare the efficiency of each environment while running specific workloads and resource-intensive scripts.
 
 ---
 
-## Technologies Used
-- Hadoop MapReduce
-- Apache Spark
-- HDFS (Hadoop Distributed File System)
-- Yarn
-- Cloud-based Virtual Machines
-- Linux Environment
+## Technologies & Tools Used
+- Bash Scripting
+- Docker Containers
+- Virtual Machines (VM)
+- Linux Shell
+- Performance Benchmarking
 
 ---
 
-## Project Objectives
-- Setup Hadoop Cluster in cloud
-- Configure Hadoop & Yarn for distributed processing
-- Perform sorting using:
-  - Hadoop Sort
-  - Spark Sort
-- Compare performance across varying:
-  - Dataset sizes: 16GB, 32GB, 64GB
-  - VM configurations: RAM & Instance Types
-- Measure execution time of sorting tasks
-- Analyze performance impact based on resources
+## Directory Structure
 
----
+```
+cs553-spring2024-hw2/
+│
+├── CPU/
+│  ├── cpubare.sh            # CPU test on Bare Metal
+│  ├── cpucontainer.sh       # CPU test inside Docker Container
+│  └── cpuvm                 # CPU test on Virtual Machine
+├── Memory/
+│   ├── membare.sh          # Memory test on Bare Metal
+│   ├── memcontainer.sh     # Memory test inside Docker Container
+│   ├── memvm.sh            # Memory test on Virtual Machine
+│   └── efficiency.sh       # Memory Efficiency Analysis Script
+├── Disk/
+│   └── diskcontainer.sh    # Disk Benchmarking Script
+│
+├── README.md               # Project Documentation
+├── readme.txt              # Instructions
+└── cloud hw2.pdf           # Assignment Report
 
-## Files Included
-| File | Description |
-|------|-------------|
-| core-site.xml | Hadoop core configuration |
-| hdfs-site.xml | HDFS configuration |
-| mapred-site.xml | MapReduce configuration |
-| yarn-site.xml | Resource management configuration |
-| pom.xml | Maven configuration for Hadoop programs |
-| vault64GB.log | Execution log for performance |
-
----
-
-## Execution Steps
-```bash
-# Run Hadoop Sort
-hadoop jar hadoop-mapreduce-examples.jar sort /input /output
-
-# Run Spark Sort
-spark-submit --class SortApp your_spark_sort_script.py
+```
 
